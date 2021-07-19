@@ -1,0 +1,62 @@
+AWS Solution Architect:
+
+Exam Guide:
+	Design Resilient Architectures 						34%
+	Define Performant Architectures						24%
+	Specify Secure Applications and Architectures		26%
+	Design Cost-Optimized Architectures					10%
+	Define Operationally-Excellent Architectures		6%
+
+	65 Questions
+
+	Recommended Reading:
+		Architecting for the Cloud: AWS Best Practices
+		AWS Well-Architected Framework
+		
+Introduction to S3 Storage:
+Serverless Storage in the cloud. Do not need to worry about infrastructure. S3 provides you with unlimited storage.
+	What is Object Storage?
+		data storage architecture that manages data as objects, as opposed to other storage architectures
+			-file systems which manages data files and fire hierarchy
+			-block storages which manages data as block within sectors and tracks
+	Two main most key components: S3 Object or S3 Bucket
+		S3 Object:
+		{Object is composed of: key, value, version ID (versioning), metadata - You can store 0 Bytes to 5 Terabytes in size<-trick question in exam}
+		S3 Buckets:
+		Buckets hold objects. Buckets can also hold folders which in turn hold objects. S3 is a universal namespace so bucket names must be unique(like a domain).
+	S3 Storage Classes:
+		Standard, Intelligent Tiering, Standard IA, One-Zone IA, Glacier, Glacier Deep Archive
+	CRR (Cross Region Replication)
+		When enabled any object that is uploaded will be automatically replicated to another region. Provides higher durability and potential disaster recovery for objects.
+		You must have versioning turned on both the source and destination buckets.
+		You can have CRR replicate to another AWS Account.
+	Versioning:
+		So it divides and tags the objects in an S3 with their unique version ID which is the same as the name. Once it is enabled it cannot be disabled only suspended. Fully intergates with the S3 Lifecycle rules. MFA Delete feature provides extra protection against deletion of your data.
+	Transfer Acceleration:
+		Fast and secure transfer of files over long distances. Utilizes Cloudfront's distribute Edge Locations.
+		Instead of uploading to your bucket, users use a distinct URL for an Edge Location. As data arrives at the Edge Location it is automatically routed to S3 over a specially optimized network path. (Amazon's backbone Network)
+	Presigned URLs:
+		Generate a url that provides temporary acces to an object.Commonly used to provide acces to private objects.
+	MFA Delete:
+		Ensures that users cannot delete froma  bucket unless they provide MFA code.
+		MFA Delete can only be enabled under these conditions.
+			1. The AWS CLI must be used to turn on MFA
+			2. The bucket must have versioning turned on
+	S3 CLI commands:
+		List all buckets:
+			aws s3 ls
+		List all folders and objects in bucket:
+			aws s3 ls://exam-pro-111
+		List all folders and objects in folder:
+			aws s3 ls://exam-pro-111/test2
+		Download objects to my desktop:
+			aws s3 cp s3://exam-pro-111/test2/mpla.jpg C:\Users\Ttofis\Desktop\mpla.jpg
+		Upload object to s3 bucket:
+			aws s3 cp C:\Users\Ttofis\Desktop\mpla.jpg s3://exam-pro-111/test2/mpla.jpg 
+		Create presigned urls (for temporary access to the object):
+			aws s3 presign s3://
+
+
+
+
+			
