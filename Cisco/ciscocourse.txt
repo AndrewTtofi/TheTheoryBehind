@@ -61,4 +61,87 @@ Cisco Second Video: Day2
 				The speeds are measured in bits per second or bps. These values are represented by either a 0 or a 1.
 				8 bits is equal to 1 byte. The speeds are measured in bits per second and NOT in bytes per second. The reason is that the transfer is reached from the giver to the receiver one bit at a time NOT a byte at a time.
 				Speed in networks is measured in Kbps, Mbps, Gbps etc.
-				1 Kilobit(Kb)
+				1 Kilobit(Kb) = 1,000 bits
+				1 Megabit(Mb) = 1,000,000 bits
+				1 Gigabit(Gb) = 1,000,000,000 bits
+				1 Terabit(Tb) = 1,000,000,000,000 bits
+
+			-Ethernet Standards:
+				Defined in the IEEE 802.3 standard in 1983
+				IEEE = Institute of Electrical and Electronics Engineers
+				
+				Speed 				Common Name				IEEE Standards			Infromal Name	(Base = refers to baseband signaling)		Maximum Lenght
+				10 Mbps				Ethernet				802.3i					10 BASE-T		(T = twisted pair)							100 m
+				100 Mbps			Fast Ethernet			802.3u					100 BASE-T													100 m 
+				1 Gbps 				Gigabit Ethernet		802.3ab					1000 BASE-T													100 m	
+				10Gbps				10 Gigabiot Ethernet	802.3an					10G  BASE-T													100 m
+			
+			Cable types:
+				-UTP Cables (unshielded twisted pair)
+					4 pairs of wires twisted together
+					8 wires in total
+					10 BASE-T	100 BASE-T use only 2 pairs of the UTP cables 
+					1000 BASE-T	10G BASE-T use all of 4 pairs of the UTP cables
+					Full-Duplex Transminsion: (Send and receive data at the same time)
+						There are in total 8 pins (8 wires in a UTP cable). When a PC is connected to a switch, if the cable is 10 Base-T or 100Base-T it only uses 4 of those pins.
+						In order for the computer to Transmit data (Tx), it uses the pins of the cable 1 and 2 which are twisted together and the switch receives (Rx) the data.
+						In order for the switch to respond or transmit data (Tx) it uses pins 3 and 6 which the wires are also twisted together and the PC receives the data(Rx).
+						This allows the Full-Duplex Transminsion.
+
+					Netowrk Nodes and UTP Cables:
+						PC 			(10Base-T + 100Base-T): pins 1+2 transmit data(Tx), pins 3+6 receive data (Rx)
+						Router  	(10Base-T + 100Base-T): pins 1+2 transmit data(Tx), pins 3+6 receive data (Rx)
+						Firewall	(10Base-T + 100Base-T): pins 1+2 transmit data(Tx), pins 3+6 receive data (Rx)
+						Switch  	(10Base-T + 100Base-T): pins 3+6 transmit data(Tx), pins 1+2 receive data (Rx)
+
+					Types of Cables:
+						Straight-through cable:
+							The cable connects the pins to the corresponding pin of the other device:
+								e.g. pin 1 to pin 1, pin 2 to pin 2 etc.
+						Crossover Calbe:
+							The cable connects the pins to of a router to a router to the following series:
+								e.g. pin1 to pin 3, pin2 to pin6, pin3 to pin1 and pin6 to pin2
+
+						Auto MDI-X:
+							Auto detects which pins is the neighboor device is receiving and transmitting on.
+							And adjust their pins accordingly.
+
+				-Fiber-Optics Connections
+					SFP Tranceiver (Small Form-Factor Pluggable)
+					Anatomy of a fiber optic cable:
+						-Fiberglass core: the section which the data is transmitted
+						-Cladding that reflects the light(info trasmitted)
+						-A prodective buffer (Protects the fiberglass from breaking)
+						-the outer jacket of the cable
+
+						Multimode Fiber Cables:
+							-Core diameter is wider than single-mode fiber
+							-Allows multiple angles (modes of lights) to enter the fiberglass core
+							-Allows longer cables than UTP, but shorter cables than single-mode fiber
+							-Cheaper than single-mode fiber (due to cheaper LED-based SFP transmitters)
+						
+						Single mode fiber:
+							-Core diameter is narrower than multimode fiber
+							-Light enters at a single angle (mode) froma laser-based transmitter
+							-Allows longer cables than both  UTP and multimode fiber
+							-More expensive than multimode fiber (due to more expensive laser-based SFP transmitters)
+
+					Fiber-Optic Cable Standards:
+						Informal Name			IEEE Standards			Speeds			Cable types			Maximum Lenght
+						1000 BASE-LX			802.3z					1Gbps			Multimode or 		550 meters (MM)
+																						Single Mode 		5 km (SM)
+						10G BASE-SR				802.3ae					10 Gbps			Multimode			400 meters						
+						10G BASE-LR				802.3ae					10 Gbps			Single Mode			10 km					
+						10G BASE-ER				802.3ae					10 Gbps			Single Mode			30 km		
+
+
+
+				-UTP Cables 														VS 							-Fiber-Optic
+				 -lower costs														|							 -Higher cost than UTP
+				 -Shorter maximum distances											|							 -Longer maximum distance than UTP								
+				 -Can be vulnrable to EMI											|							 -No vulnerability to EMI									
+				 -RJ45 port used with UTP are cheaper than SFP ports				|							 -SFP ports are more expensive than RJ45 (single-mode is more expensive 
+				 -Emit (leak) a faint signal outside the cable, which				|							  than multimode)
+				  can be copied (security leak)										|							 -Does not emit any signal outside the cable (no security risks)				
+
+				  
