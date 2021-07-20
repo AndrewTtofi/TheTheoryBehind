@@ -45,13 +45,20 @@ Cisco First Video: https://www.youtube.com/watch?v=H8W9oMNSuwo&list=PLxbwE86jKRg
 			- They monitor and control network traffic based on configured rules
 			- They can be placed "inside" the network (after traffic hits the router), or "outside" the network (before the traffic hits the router)
 			- "Next Generation Firewalls" they include modern and advanced filtering cababilities.
-
+		Host-Based Firewalls:
+			- Host-Based firewalls are installed softwares that monitor the inbound and outbound traffic on your PC. example: Windows Firewall
 
 Cisco Second Video: Day2
 	Interfaces and Cables:
-		Interfaces can also be called ports. Ethernet ports are called RJ-45 (Registered Jack).
+		Interfaces can also be called ports (on switches). Ethernet ports are called RJ-45 (Registered Jack).
 		What is Ethernet? Is a collection of networks protocols/standards.
 		Why we need network protocols and standards?
 			- Network protocols and standards is like a predefined language in which the devices are going to communicate in. 
 			- If you try to connect a cable and a switch if the two vendors go with the ethernet standards that are usually followed then they will not be able to communicate.
-			
+		Connection between Devices in a Network:
+			- Speeds:
+				Connection between devices in a network operate at a set speed.
+				The speeds are measured in bits per second or bps. These values are represented by either a 0 or a 1.
+				8 bits is equal to 1 byte. The speeds are measured in bits per second and NOT in bytes per second. The reason is that the transfer is reached from the giver to the receiver one bit at a time NOT a byte at a time.
+				Speed in networks is measured in Kbps, Mbps, Gbps etc.
+				1 Kilobit(Kb)
