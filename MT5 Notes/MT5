@@ -1,0 +1,104 @@
+MT5 Intro:
+	Start Page:
+		The start page is the first page displayed when you login.
+		It contains several information regarding:
+			Owner of the Company
+			Licenses - Expiration date of license, License ID, Accounts etc
+			Alerts - Important alerts such as no connection of gateway or data feed, A platform component is not connected
+			Administrator Best Practices: Very important section for ME
+
+	Network Cluster
+		Displays the cluster that our platform is connected to.
+		It consists of several servers. Each server performs specific functions and thus the overall load is distributed among different components.
+		You can add or remove(by installing them) servers from the cluster depending on what you want the functionality of the platform. When the installation is completed you must reboot the platform for changes to take effect.
+
+
+	Servers:
+	   Server (Tabs):
+		Once the installation is complete with the new server and the platform is restarted, you can configure the server via double clicking on them.
+		A new Window named "Server" will pop with several tabs on it.
+		The most general settings that we are going to use are "Common", "Network", "Service".
+			Common:
+				Type - The type of the server (test, main, demo)
+				Name - name of the server
+				ID   - identifier that is used for internal
+				Password - internal password that is used for the connection of the platform to this server. Password is set during installation. 
+				Latitude/Longitude — geographic coordinates of the server to enable its precise positioning on the interactive cluster map.
+			Network:
+				Ask Rogiros ?????
+			Service:
+				Network adapter - network adapter which will monitor the server state
+				Optimization Time - time of optimization of the server. Processes run in order to increase the performance and reliability of the server. (Example: Deletion of expired demo accounts, optimization of db and updates of components)
+
+	  Trade Server:
+	  	Two main types of trade servers. The main one and all the others.
+	  	Difference between the two server types is that Main Server implements the system configuration management and management of other servers.
+	  	The Trade Server performs the following functions:
+	  		-Storage and management of client records
+	  		-Authentication and authorization of client connections
+	  		-Storage and management of trade records
+	  		-Checking, management and execution of trade requests
+	  		-Management of the internal mailing system
+
+	  	To Set-up the Main and other trade servers are similar. Settings under Commmon, Network and Service tabs are the same for ALL server TYPES.
+	  	1.ONLY ONE main trade server can exist in a system.
+	  	2.The installation of the main and additional trade servers is described in the corresponding section
+	  	3. There is a number of special features of adding secondary trade servers to the system
+
+	  Othe Tabs for Trade Servers:
+	  	Demo:
+	  		Demo accounts -> type of working with demo accounts. Three variants are available:
+	  			-> Disable - opening a new demo account with a client terminal will be impossible on this server. Demo accounts can be opened with administrator and manager terminals and via API.
+	  			-> Prolong from last login - each time the client connects to the demo account the expiration time will be increased by the time specified in "Time of demo"
+	  			-> With fixed period - demo accounts will be active for the time period specified in "Time of demo"
+	  		Time of Demo -> number of days which the demo accounts will be active
+
+	  		If the we Disable opening demo accounts at a later stage then all the currently open Demo accounts will be transferred to the "Prolong from last" login option
+	  		All expired Demo accounts will be deleted as mentioned above every Sunday during the optimization process.
+
+ 	  	
+ 	  	End of Day:
+ 	  		This tab generates daily and monthly reports.
+ 	  		End of day time -> choose the time which the trading day ends.
+ 	  						   It starts the generation of statements, charging swaps, 
+ 	  						   interest rate and commissions.
+ 	  						   The execution of this process starts at the 59th second of the specified time.
+
+ 	  		End of day schedule -> specify in which days the above process will take place.
+ 	  		
+ 	  		Rollover schedule-> In order to understand Rollover schedule we need to understand swaps.
+ 	  			What is a Swap?
+ 	  				A Swap (Rollover) is the operation of transferring a trader's open position on the next trading day. This operation is performed at the End of the Trading Day, if the position remains open at that moment.
+ 	  			Rollover schedule defines the days that the rollover of those open positions will take place.
+
+ 	  		Daily Statements-> The Daily Statements are created before the End of Day (before swaps, interest rate and commissions are charged) OR at the beginning of a trade day (after swaps, interest rate and commissions are charged).
+ 	  		
+ 	  		Last End of Day-> The date and time of the last End of Day. When generating the last daily statement, the server uses trading data beginning from the specified date.
+
+ 	  		Previous end of day-> The date and time of the previous end of day. Daily statements include a client's trading status for the previous day. The server uses the specified date to calculate it.
+
+ 	  		Monthly Statements-> Time when monthly statements are generated: at the end of the last day of a month (before swaps, interest rate and commissions are charged) OR at the beginning of the first day of the next month (after swaps, interest rate and commissions are charged).
+
+ 	  		Last end of month-> The date and time of the last end of month. When generating the last monthly statement, the server uses trading data beginning from the specified date.
+
+ 	  		Previous end of month-> The date and time of the previous enf of month. Daily statements include a client's trading status for the previous trading month. The server uses the specified date to calculate it
+
+**********************************************************************************************************************************
+	Plugins:
+		-Plugins have stored logs under their VM in the Main Trade Directory
+		-You can export those logs in cases such as:
+			a. Plugin was not started successfully
+			b. Plugin is not behave as expected
+
+	History Servers holds the logs of Gateways and DataFeeds
+
+	Real Accounts-> All the accounts that can actively trade on the platform
+
+	Dormant Fee-> Dormant fee is a fee that applies to all inactive accounts for a longer period of time than 90 days
+
+	Archive Script-> This script was created by Stelios, and its purpose is to archive the accoounts that are not active
+
+	Groups Mapping-> Group Mapping is a Sharesheet which explains the logic behind the names of the groups created
+
+
+
