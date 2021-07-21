@@ -99,7 +99,43 @@ Cisco Second Video: Day2
 							The cable connects the pins to the corresponding pin of the other device:
 								e.g. pin 1 to pin 1, pin 2 to pin 2 etc.
 
+					-Fiber-Optics Connections
+					SFP Tranceiver (Small Form-Factor Pluggable)
+					Anatomy of a fiber optic cable:
+						-Fiberglass core: the section which the data is transmitted
+						-Cladding that reflects the light(info trasmitted)
+						-A prodective buffer (Protects the fiberglass from breaking)
+						-the outer jacket of the cable
 
+						Multimode Fiber Cables:
+							-Core diameter is wider than single-mode fiber
+							-Allows multiple angles (modes of lights) to enter the fiberglass core
+							-Allows longer cables than UTP, but shorter cables than single-mode fiber
+							-Cheaper than single-mode fiber (due to cheaper LED-based SFP transmitters)
+						
+						Single mode fiber:
+							-Core diameter is narrower than multimode fiber
+							-Light enters at a single angle (mode) froma laser-based transmitter
+							-Allows longer cables than both  UTP and multimode fiber
+							-More expensive than multimode fiber (due to more expensive laser-based SFP transmitters)
+
+					Fiber-Optic Cable Standards:
+						Informal Name			IEEE Standards			Speeds			Cable types			Maximum Lenght
+						1000 BASE-LX			802.3z					1Gbps			Multimode or 		550 meters (MM)
+																						Single Mode 		5 km (SM)
+						10G BASE-SR				802.3ae					10 Gbps			Multimode			400 meters						
+						10G BASE-LR				802.3ae					10 Gbps			Single Mode			10 km					
+						10G BASE-ER				802.3ae					10 Gbps			Single Mode			30 km		
+
+
+
+				-UTP Cables 														VS 							-Fiber-Optic
+				 -lower costs														|							 -Higher cost than UTP
+				 -Shorter maximum distances											|							 -Longer maximum distance than UTP								
+				 -Can be vulnrable to EMI											|							 -No vulnerability to EMI									
+				 -RJ45 port used with UTP are cheaper than SFP ports				|							 -SFP ports are more expensive than RJ45 (single-mode is more expensive 
+				 -Emit (leak) a faint signal outside the cable, which				|							  than multimode)
+				  can be copied (security leak)										|							 -Does not emit any signal outside the cable (no security risks
 
 Cisco Third Video: Day 3
 	Networking Models:
