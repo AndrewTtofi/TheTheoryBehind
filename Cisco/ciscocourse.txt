@@ -98,50 +98,93 @@ Cisco Second Video: Day2
 						Straight-through cable:
 							The cable connects the pins to the corresponding pin of the other device:
 								e.g. pin 1 to pin 1, pin 2 to pin 2 etc.
-						Crossover Calbe:
-							The cable connects the pins to of a router to a router to the following series:
-								e.g. pin1 to pin 3, pin2 to pin6, pin3 to pin1 and pin6 to pin2
-
-						Auto MDI-X:
-							Auto detects which pins is the neighboor device is receiving and transmitting on.
-							And adjust their pins accordingly.
-
-				-Fiber-Optics Connections
-					SFP Tranceiver (Small Form-Factor Pluggable)
-					Anatomy of a fiber optic cable:
-						-Fiberglass core: the section which the data is transmitted
-						-Cladding that reflects the light(info trasmitted)
-						-A prodective buffer (Protects the fiberglass from breaking)
-						-the outer jacket of the cable
-
-						Multimode Fiber Cables:
-							-Core diameter is wider than single-mode fiber
-							-Allows multiple angles (modes of lights) to enter the fiberglass core
-							-Allows longer cables than UTP, but shorter cables than single-mode fiber
-							-Cheaper than single-mode fiber (due to cheaper LED-based SFP transmitters)
-						
-						Single mode fiber:
-							-Core diameter is narrower than multimode fiber
-							-Light enters at a single angle (mode) froma laser-based transmitter
-							-Allows longer cables than both  UTP and multimode fiber
-							-More expensive than multimode fiber (due to more expensive laser-based SFP transmitters)
-
-					Fiber-Optic Cable Standards:
-						Informal Name			IEEE Standards			Speeds			Cable types			Maximum Lenght
-						1000 BASE-LX			802.3z					1Gbps			Multimode or 		550 meters (MM)
-																						Single Mode 		5 km (SM)
-						10G BASE-SR				802.3ae					10 Gbps			Multimode			400 meters						
-						10G BASE-LR				802.3ae					10 Gbps			Single Mode			10 km					
-						10G BASE-ER				802.3ae					10 Gbps			Single Mode			30 km		
 
 
 
-				-UTP Cables 														VS 							-Fiber-Optic
-				 -lower costs														|							 -Higher cost than UTP
-				 -Shorter maximum distances											|							 -Longer maximum distance than UTP								
-				 -Can be vulnrable to EMI											|							 -No vulnerability to EMI									
-				 -RJ45 port used with UTP are cheaper than SFP ports				|							 -SFP ports are more expensive than RJ45 (single-mode is more expensive 
-				 -Emit (leak) a faint signal outside the cable, which				|							  than multimode)
-				  can be copied (security leak)										|							 -Does not emit any signal outside the cable (no security risks)				
+Cisco Third Video: Day 3
+	Networking Models:
+		-OSI Model and TCP/IP Suite
 
-				  
+	What is a Networking Model:
+		Networking models categorize and provide a structure for networking protocols and standards.
+		Protocols: a Set of rules defining how network devices and software should work
+
+	OSI Model: Open Systems Interconnection model (7 Layers)
+		-A conceptual model that categorizes and standarizes the different functions in a network
+		-Created by the International Organization for Standarization
+		-Network functions are divided into 7 Layers
+			1 Physical,2 Data Link,3 Network,4 Transport, 5 Session,6 Presentation,7 Application
+
+
+			Upper Layers:
+				7 Application Layer:
+					This layer is closest to the end user.
+					Interacts with software applications, for example a web browser
+					HTTPS and HTTP are Layer 7 protocols
+					Process-to-Process communications
+	
+						Functions of Layer 7:
+							Identifying communication partners
+							Sychronizing communication
+	
+				6 Presentation Layer:
+						Data in the application layer is in "application format"
+						It needs to be "translated" to a different format to be sent over the network
+						The Presentation Layer job is to translate between the application and network formats
+						e.g. Encryption or decryption of data send and received
+	
+				5 Session Layer:
+						Controls dialogues (session) between communicating hosts
+						Establishes, manages and terminates connections between the local applications (for example web browser) and the remote application (e.g YouTube)
+			
+			Bottom 4 Layers:
+				4 Transport Layer: (Adds a L4 Header - a header that is added to each segment of the data past the segmentation process) data+l4 header = segment
+					Segments and reaassembles data for communications between end hosts
+					Breaks large pieces of data into smaller segments which can be more easily sent over the network and are less likely to cause transmission problems
+					if errors occur.
+					Provide host-to-host communication (end-to-end communication)
+
+				3 Network Layer: (Adds a L3 Header ) data+L4 header+L3 header = packet 
+					Provides connectivity between end host on different network (outside of the LAN)
+					Provides logical addressing (IP addresses)
+					Provides path selection between source and destination
+					Routers are Layer 3 network devices
+
+				2 Data Link Layer: (Adds a L2 Header and L2 trailer) L2 trailer+data+L3 header+L4 header+L2 header = frame
+					Provides node-to-node connectivity and data transfer (e.g. PC to switch, switch to router, router to router)
+					Defines how data is formatted for transmission over a physical medium (e.g copper UTP cables)
+					Detects and corrects Phhysical Layer errors
+					Uses Layer 2 addressing, seperate from Layer 3 addressing
+					Switches operate at Layer 2.
+
+				1 Physical:
+					Defines physical characteristics of the medium used to transfer data between devices
+					e.g Voltage levels, maximum transmission distances, physical connectors, cable specifications
+					Digital bits are converted into electrical (for wired connections) or radio (for wireless connections) signals.
+
+
+
+				PDUS(Protocol Data Units)
+					Data, Segment, Packet, Frame, Bit
+
+
+
+
+			Encapsulation:
+				The process which data starts from Layer 7 (Application) and goes through the rest of the layers gaining information in order to be send via the
+				physical layer
+			De-encapsulation:
+				The process which data is received on Layer 1 (Physical) and goes through the rest of the layers decompressing the information in order to be received
+				at the Application layer of the receiver
+
+
+	TCP/IP Suite Model:
+		Conceptual model and set of communications protocols used in the Internet and other networks.
+		Known as TCP/IP because those are two of the foundation protocols in the suite.
+		Developed by the United States Department of Defense through DARPA (Defence Advanced Research Project Agency)
+		Similar structure to the OSI Model, but with fewer layers.
+		This is the model actually in use in modern networks
+		NOTE: OSI model still influnces engineers
+
+		Layers of the Model:
+			1 Link, 2 Internet, 3 Transport, 4 Application
