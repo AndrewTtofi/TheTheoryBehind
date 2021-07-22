@@ -226,4 +226,60 @@ Cisco Third Video: Day 3
 			1 Link, 2 Internet, 3 Transport, 4 Application
 
 Cisco Fourth Video: Day 4
+	Cisco IOS CLI:
+		What is a CLI?
+		 	Command-line interface
+		 	The interface you use to configure Cisco
+		 What is a GUI?
+		 	Graphical User Interface
+
+		 In order to program a Cisco device you need to connect to the console port. Console ports are either RJ45 or USB mini-b
+		 You can either use a rollover cable (RJ45 to DB9 connector). You can use an adaptor (DB2 to usb)
+
+		 In order to connect to the device you can use a Terminal Emulator (Putty)
+
+
+	User EXEC mode: is represented in terminal by > (e.g Router>) Router is the hostname of the device
+		User exec mode is very limited
+		Users can look at some things, but cant make any changes to the configuration
+		Also called "user mode"
+
+	Privilaged EXEC mode: is represented in terminal by # (e.g Router #)
+		Provides complete acces to view the device's configuration, restart the device, etc. To enter use enable-Enter
+		Cannot change the configuration, but change time or save
+
+	Global Configuration Mode: Router(config)#
+		To enter you use conf->Tab->Enter
+		It is represented by Router(config)#
+		enable password <passowrd> command to change the password and enable it
+		Passwords are case sensitive
+
+
+	There are two seperate configuration files kept on the device at once:
+		Running-config = the current, acive configuration file on the device. As you enter commands in the CLI, you edit the active configuration
+
+		Startup-config = the configuration file that will be loaded when reboot or startup device
+
+		Commands:
+			show running-config
+			show startup-config
+
 	
+				write = save it to the memory of the device
+				write memory = save it to the memory of the device
+				copy running-config startup-config = copy the runninng configuration to the startup configuration
+				enable secret -> eanble passsword more securly (NOT SAME commands)
+				service password-encryption:
+					current passwords will be encrypted
+					furuter passwords will be encrypted
+					the enable secret will not be effected
+				no service password-encryption:
+					current passwords will not be encrypted
+					future passwords will not be encrypted
+					the enable secret will not be effected
+				run = sudo but for Cisco
+				no = removes the command
+				
+
+			
+
