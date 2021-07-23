@@ -281,5 +281,59 @@ Cisco Fourth Video: Day 4
 				no = removes the command
 				
 
-			
+Cisco Fifth Day: Day 5
+	LAN: Local Area Network
+	
+	Ethernet Frame:
+		Ethernet header - Packet - Ethernet Trailer
+			Ethernet header:
+				Preamble - SFD (Start Frame Delimiter) - Destination - Source - Type		
+					Preamble + SFD:
+						Used for synchronization and prepare the device to receive the frame
+						Preamble:
+							-Lenght: 7 bytes or 56 bits
+							-Alternating 1's or 0's
+							-10101010 * 7
+							-Allows devices to synchronize their receiver clocks
 
+						SFD: Start Frame Delimiter
+							-Lenght: 1 bytes or 8 bits
+							-Marks the end of the preamble and the beginning of rest of the frame
+							-10101011
+
+					Destination:
+						The layer 2 address to which the frame will be send
+						Consist of the destination MAC (media access control) address
+						6 bytes or 48 bits
+
+					Source:
+						The layer 2 address to which the frame was sent
+						6 bytes or 48 bits
+
+					Type:
+						The layer 3 protocol used in the encapsulation process (IPv4, IPv6)
+						-2 bytes (16 bit) field
+						-A value of 1500 or less in this field indicates the LENGHT of the encapsulated packet (in bytes)
+						-A value of 1536 or greater in this field indicates the TYPE of the encapsulated packet (usually IPv4 or IPv6) and the lenght is deterrmined via other methods
+
+			Ethernet trailer:
+				FCS:
+					Frame Check Sequence which is used by the receiving device to detect any errors that might have occured during transmission
+					4 bytes or 32 bits in leght
+					Detects corrupted data by running a CRC algorithm over the received data
+					CRC = Cyclic Redundancy Check
+
+		MAC Addresses:
+			-6 byte or 48 bit physical address assigned to the device when it is made
+			-A.K.A Burned-In Address (BIA)
+			-Is globally unique
+			-The first 3 bytes are the OUI (Organizationally Unique Identifier) which is assigned to the company making the device
+			-The last 3 bytes are unique to the device itself
+			-Written as 12 hexadecimal characters
+
+		Unicast Frame:
+			The Frame transmitted from a mac address to be received to another. Contains source, destination mac addresses and all the above
+		Uknown Unicast Frame:
+			The Frame received from a mac address and the switch does not know the end destination (SW1 Mac Address Table does not have the mac address)
+			In order to find the destination of the mac address it floods the LAN.
+			
