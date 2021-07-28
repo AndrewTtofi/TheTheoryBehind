@@ -281,7 +281,7 @@ Cisco Fourth Video: Day 4
 				no = removes the command
 				
 
-Cisco Fifth Day: Day 5
+Cisco Fifth Day: Day 5 part a
 	LAN: Local Area Network
 	
 	Ethernet Frame:
@@ -337,3 +337,10 @@ Cisco Fifth Day: Day 5
 			The Frame received from a mac address and the switch does not know the end destination (SW1 Mac Address Table does not have the mac address)
 			In order to find the destination of the mac address it floods the LAN.
 			
+
+Cisco Fifth Day: Day 5 part b
+	The Preamble + SFD is usually not considered part of the Ethernet Header
+	Therefore the size of the Ethernet Header + Trailer is 18 bytes
+	There is a minimum size for an Ethernet frame: 64 bytes
+		Therefore the minimum payload (packet) size is 46 bytes (64 bytes of minimum size - 18 bytes of header and trailer)
+		If the payload is less than 46 bytes padding bytes are added
