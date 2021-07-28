@@ -344,3 +344,31 @@ Cisco Fifth Day: Day 5 part b
 	There is a minimum size for an Ethernet frame: 64 bytes
 		Therefore the minimum payload (packet) size is 46 bytes (64 bytes of minimum size - 18 bytes of header and trailer)
 		If the payload is less than 46 bytes padding bytes are added
+
+	When data are sent from one PC to another not only the source and destination Mac addressess are attached but also IPs.
+	Since switches operate on layer 2 they do not use those IPs. In order for switches to communicate in such manner they use ARP (Address resolution Protocol)
+
+	ARP (Address Resolution Protocol):
+		-ARP is used to discover the Layer 2 address (MAC address) of a known Layer 3 address (IP address)
+		-Consists of 2 messages:
+			ARP Request
+			ARP Reply
+		-ARP Request is broadcast = sent to all hosts on the network
+		-ARP Reply is unicast = sent only to one host (the host that sent the request)
+
+	Ping:
+		-A network utility that is used to test reachability
+		-Measures round-trip time
+		-Uses two messages:
+			ICMP Echo Request
+			ICMP Echo Reply
+
+	MAC Address Table:
+		command: show mac address-table
+		When a MAC address stays inactive for more the 5 minutes they are removed from the MAC address table (Aging)
+		To manually remove the mac addresses table: 
+			clear mac address-table dynamic (removes all dynamic mac addresses)
+			clear mac address-table dynamic address xx_address_xx (clears mac addresses from the table)
+			clear mac address-table dynamic interface xx_interface-id_xx (clear all mac addresses from the table that are from that interface)
+			
+
