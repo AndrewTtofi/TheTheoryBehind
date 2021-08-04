@@ -1,2 +1,50 @@
 Introduction to DevOps->https://www.youtube.com/watch?v=j5Zsa_eOXeY
-	
+	DevOps Definition:
+		A metholodgy that helps engineering teams build products by continuously getting user feedback.
+		The main purpose of DevOps is that through the user feedback you are creating a new version of your product, instead of releasing a new product (e.g Call of Duty 1 to Call of Duty 2)
+		you implement your current version which allows the user to continue working with the current product which is upgraded.
+
+	DevOps Lifecycle:
+		Plan:
+			Take a set of features you want to develop
+		Code:
+			Developers build those features
+		Build:
+			Build those features and update the code. (for games lets say is the version build: e.g 1.0.1 , 1.0.2 etc)
+		Test:
+			Test those features through an automated system (CI: Continuous Intergration) or manual testing (QA: Quality Assurance)
+		Release:
+			Continuous Deployment: The release is made in segments (lets say 1% of your users) and then feedback is taken
+			Once the feedback is processed it will continue the deployment to more users.
+		Deploy:
+			The release is then released and deployed to all users, which makes it publicly available.
+			e.g. for a mobile app on the App Store, the team would gather the artifacts, buld them and submit them to the App Store.
+				 then the App Store woudl review them and then release them as the form of a new update.
+		Operate:
+			Configure things dealing with architectural problems, make sure enough resources exist for the load, adding more servers if required.
+		Monitor:
+			Ensure that the released version is working as expected.
+
+
+		Once all the above steps are completed then the cycle once again runs with the start of a new Plan.
+
+	DevOps Engineering:
+		Practical use of DevOps within software engineering teams. Being able to build, test, release and monitor applications.
+
+	DevOps Engineering Pillars:
+		1. Pull Request Automation
+				Helps Developers build things faster, and helps them understand whether their proposed change is good, faster.
+		2. Deployment Automation
+				Deployment automation, helps you deploy your code in a way that users dont complain.
+		3. Application Performance Management
+				Automation around making sure things are healthy.
+
+		Pull Request Automation:
+			-Developers share code changes using git tools like GitHub, GitLab and Bitbucket
+			-A set of code changes in git tools is called a "pull request" or "merge request"
+			-If pull requests are approved, the code changes can go into the main codebase
+
+	What can be automated?
+		Continuous Integration (CI)
+		
+
