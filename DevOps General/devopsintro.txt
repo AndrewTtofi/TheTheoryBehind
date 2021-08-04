@@ -46,5 +46,6 @@ Introduction to DevOps->https://www.youtube.com/watch?v=j5Zsa_eOXeY
 
 	What can be automated?
 		Continuous Integration (CI)
-		
 
+
+sdakjfbsdjkah
