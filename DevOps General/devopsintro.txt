@@ -53,3 +53,8 @@ Introduction to DevOps->https://www.youtube.com/watch?v=j5Zsa_eOXeY
 			Goal as DevOps Engineer:
 				Help developer change proposals get reviewed and merged within 24 hours of when they are made.
 
+		Deployment Automation:
+			-Deploy a feature to a certain set of users as a final test before rolling it out publically
+			-Starting new versions of services without causting downtime
+			-Rolling back to the prior version in case something go wrong
+
