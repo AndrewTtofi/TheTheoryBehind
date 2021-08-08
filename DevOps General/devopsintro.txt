@@ -58,3 +58,39 @@ Introduction to DevOps->https://www.youtube.com/watch?v=j5Zsa_eOXeY
 			-Starting new versions of services without causting downtime
 			-Rolling back to the prior version in case something go wrong
 
+			When deploying code many things can go wrong. Goal as a DevOps Engineer:
+				Have the right tools in place that facilitate deployment without having to have much custom code.
+
+
+		Application Performance Manager:
+			-Metrics: numeric measurements of key numbers in production
+			-Logging: text descriptions of what is happening during processing
+			-Monitoring: take metrics and logs to convert them into health metrics
+			-Alerting: If monitoring detects a problem, it notifies developers
+
+
+
+		Examples of DevOps Engineering:
+			1.Scenario 1
+				A startup that with no users building a web application.
+				Since we do not really care about downtime or compare the new code behaviour with the old one via customer feedback, only the first pillar will be applied for our code.
+				We can use in this case free software that will provide us with all the appropriate tools:
+					Github
+					Netlify/Vercel
+					LayerCI
+
+
+			2. Scenario 2
+				Team building an application for 10 enterprise customers
+				Since downtime matters a lot, we need to focus on the 3rd pillar that will ensure downtimes are minimatized and does not cause any problem to the daily operation of 
+				the companies.
+				We can use in this case the following software:
+					Github
+					Sentry
+					PagerDuty
+					CodeCov
+					Bitrise/CircleCI
+
+
+			3. Scenario 3
+				
