@@ -307,7 +307,7 @@ Cisco Fifth Day: Day 5 part a
 						6 bytes or 48 bits
 
 					Source:
-						The layer 2 address to which the frame was sent
+						The layer 2 address to which the frame was sent from
 						6 bytes or 48 bits
 
 					Type:
@@ -338,7 +338,7 @@ Cisco Fifth Day: Day 5 part a
 			In order to find the destination of the mac address it floods the LAN.
 			
 
-Cisco Fifth Day: Day 5 part b
+Cisco Sixth Day: Day 6 part b
 	The Preamble + SFD is usually not considered part of the Ethernet Header
 	Therefore the size of the Ethernet Header + Trailer is 18 bytes
 	There is a minimum size for an Ethernet frame: 64 bytes
@@ -365,10 +365,37 @@ Cisco Fifth Day: Day 5 part b
 
 	MAC Address Table:
 		command: show mac address-table
-		When a MAC address stays inactive for more the 5 minutes they are removed from the MAC address table (Aging)
+		When a MAC address stays inactive for more than 5 minutes they are removed from the MAC address table (Aging)
 		To manually remove the mac addresses table: 
 			clear mac address-table dynamic (removes all dynamic mac addresses)
 			clear mac address-table dynamic address xx_address_xx (clears mac addresses from the table)
 			clear mac address-table dynamic interface xx_interface-id_xx (clear all mac addresses from the table that are from that interface)
 			
 
+Cisco Seventh Day: Day 7 part a
+	IPv4 Addressing:
+		Day 3 Video -> Revisit
+			OSI Model -> Network
+				Network Layer:
+					-Provides connectivity between end hosts different networks (i.e outside the LAN)
+					-Provides logical addressing (IP addresses)
+					-Provides path selection between source and destination
+					-Routers operate at Layer 3
+
+	Routing:
+		In a local area network the communication between the devices is pretty easy (lets say we have two switches).
+		The device that wants to communicate, broadcasts its frame to all the available devices and get the reponce from the destination it needs.
+
+		Lets add a router between the two switches:
+		We would have two different networks -> 192.168.1.0/24 	192.168.2.0/24
+		Routers gain an IP for each network they are connected to. Usually its the last available IP.
+		So in our case it would gain 192.168.1.254	and 192.168.2.254. Those addresses are attached to the appropriate Interfaces.
+
+
+	IPv4 Address Class:
+		Class			First Octet			First Octet numberic range
+		A 				0XXXXXXX			0-127
+		B 				10XXXXXX			128-191
+		C 				110XXXXX			192-223
+		D 				1110XXXX			224-239			Multicast addresses
+		E 				1111XXXX			240-255			Reserved (experimental)
