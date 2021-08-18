@@ -93,4 +93,53 @@ Introduction to DevOps->https://www.youtube.com/watch?v=j5Zsa_eOXeY
 
 
 			3. Scenario 3
-				
+				Heavy Traffic social media application like Reddit
+				We can use the following software:
+					Github Enterprise, Sentry, Elastic Search/Logstash/Kibana/Pingdom, Launch Darkly, Terraform
+
+
+
+			Conclusion:
+				DevOps Engineering is vital for engineering teams, especialy as the product matures.
+
+	Testing:
+		Test Driven Development Definition:
+			Known as TDD, it is a coding methodology where tests are written before code is written.
+			Monolithic Tests that were established in factories (Example with a coffee maker):
+				Unit Tests (insure individual components work - does the plug work, does the heater heats up? etc)
+				Intergration tests (ensure components work together - does the heater heat the water in the tank? do the button work with the parts? etc)
+				System (end to end) tests (ensure everything works together)
+				Acceptance tests (customer feedbacks)
+
+		TTD Goals:
+			Know when something breaks and where
+			Know that the whole system is working properly
+
+		Workflow without TDD:
+			1. Choose something to work on
+			2. Build it based on specifications
+			3. Test it with small scripts
+
+			VS
+		Workflow with TDD:
+			1. Choose something to work on
+			2. Write tests that would pass if product works
+			3. Keep building until all tests pass
+
+		Results are the same regardless of the method - TDD forces you to prioritize tasks.
+
+	What is CI (Continuous Integration):
+		CI Definition:
+			Developers pushing many small changes to a central repository per day. These changes are verified by an automatic software that runs comprehensive tests to
+			ensure no major issues are seen by customers.
+
+		Top 3 Benefits of CI:
+			1. CI is the first step of DevOps automation and helps with code collaboration
+			2. CI helps improve developer speed without breaking existing code
+			3. CI helps reduce customer churn and user satisfaction by preventing broken code from publishing
+
+		How do you imnplement CI into your existing code?
+			First of all how the flow works for Developers:
+				- Master Branch -> where all the code exists that will later on be pushed to the users
+				- Feature Branch -> the developers make a new branch that will create 
+
