@@ -141,5 +141,17 @@ Introduction to DevOps->https://www.youtube.com/watch?v=j5Zsa_eOXeY
 		How do you imnplement CI into your existing code?
 			First of all how the flow works for Developers:
 				- Master Branch -> where all the code exists that will later on be pushed to the users
-				- Feature Branch -> the developers make a new branch that will create 
+				- Feature Branch -> the developers make a new branch that will include all the changes and additions
+				- Feature Branch will be murged to the Master Branch. 
+				Actual Flow:
+					Devs work on the feature Branch. The devs will take the files that are current, or for a specific set of time.
+					They will make changes and additions to that feature branch (each working on their own branch).
+					Then they will push it back to their main repository.
+					Repository will then run the CI, that will be configured on the repository side.
+					It will run all of the tests that the programmers/devs have defined.
+					The results of those tests will be attached to the pull request.
+					The pull request is the developer asking to take their code and to merge it into the central repository that the users will be shown.
+					So you take the feature branch, and you commit it at the end of what will be the next deployment.
+
+			CI is a vital tool for developer collaboration. Increase collaboration, prevent errors and increase user satisfaction.
 
