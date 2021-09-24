@@ -1,0 +1,10 @@
+Chapter 4.1
+  What is IAM?
+    IAM allows you to manage users and their level of access to the AWS Console. It is important to understand IAM and how it works, both for the exam and for administrating a company's
+    AWS account in real life.
+  Identity Access Management offers the following features:
+    Centralised control of your AWS account
+    Shared Access to your AWS account
+    Granual Permissions
+    Identity Federation (Including Active Directory, Facebook, Linkedin etc)
+   
