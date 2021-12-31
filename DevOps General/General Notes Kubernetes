@@ -1,0 +1,6 @@
+General Notes (Kubernetes):
+List resources (only number) with specific selector:
+kubectl get all --selector env=prod --no-headers | wc -l
+
+Change the image of deployment:
+kubectl set image deployment/[deployment name] [container name]=[new image name]
