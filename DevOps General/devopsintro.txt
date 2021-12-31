@@ -153,5 +153,42 @@ Introduction to DevOps->https://www.youtube.com/watch?v=j5Zsa_eOXeY
 					The pull request is the developer asking to take their code and to merge it into the central repository that the users will be shown.
 					So you take the feature branch, and you commit it at the end of what will be the next deployment.
 
-			CI is a vital tool for developer collaboration. Increase collaboration, prevent errors and increase user satisfaction.
+			CI is a vital tool for developer collaboration. Increase collaboration, prevent errors and increase user satisfaction.  
+		
+	Code Coverage:
+		Methodology that quantitatively measures how comprehensive a code base's tests are. Increasing code coverage often increases stability and reduces bugs.
+		Code is being structured into 3 main lines:
+			Branch Lines: They change the flow of the program
+			Syntax Lines: They are the lines were we close a loop for example or an if -> {}
+			Logic Lines: If removed the would change the behaviour of the program
 
+		Code Coverage Formula:
+		Definition-> the outcome produced by the formula is the total percentage of test coverage
+			total # of non-syntax lines with test / total # of non-syntax lines
+
+		Branch Coverage Definition:
+			A very relevant concept to code coverage is "branch coverage" - instead of measuring how many lines
+			of code, it measures groups of lines.
+
+		When to care about code coverage:
+			Your product has users and those users might leave if they are affected by bugs
+			You are working with developers that are not immediately trustworthy like contractors/inters
+			You are working on a very large code base with many testable components
+
+		Common mistake: too many tests for uncertain features
+
+		Rules for Code Coverage:
+			Rule1: code coverage must not decrease
+
+			Rule2: code owners for test files
+
+
+
+	Linting:
+		Definition:
+			Linters look at a program's source code and find problems automatically. They are a common feature of pull request
+			automation because they ensure that "obvious" bugs do not make it to production.
+
+		
+
+	
