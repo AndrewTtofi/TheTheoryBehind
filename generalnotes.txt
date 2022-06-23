@@ -1,0 +1,424 @@
+General Notes:
+*****************************************************************************
+Ubuntu Commands:
+/bin/bash
+*****************************************************************************
+MT5-List all records queries:
+
+For mt5_deals:
+SELECT SUM(TABLE_ROWS)
+FROM INFORMATION_SCHEMA.TABLES
+WHERE TABLE_NAME = 'mt5_deals';
+*****************************************************************************
+How to add user on Ubuntu server
+
+Login to ubuntu using ssh and execute below commands:
+sudo adduser scriptexecutor 
+
+How to add a user as administrator:
+sudo gpasswd -a sampleuser sudo
+
+How to delete a user from administrator:
+sudo gpasswd -d “username” sudo
+
+How to reset password for user:
+sudo passwd sampleuser
+
+How to rename user:
+sudo usermod -l new-user old-user
+
+How to bypass Name_Regex while naming a new user:
+Sudo adduser --force-badname sampleuser
+
+How to see all administrators:
+getent group sudo | cut -d: -f4
+
+Add user to sudoers:
+sudo usermod -aG sudo scriptexecutor
+
+Disable code requirement for sudo from user:
+sudo VISUAL=vi visudo
+scriptexecutor ALL=(ALL) NOPASSWD:ALL
+*****************************************************************************
+How to enable SNMP on Ubuntu server:
+
+1. Install SNMP: sudo apt-get install snmpd
+2. Edit config file: sudo vi /etc/snmp/snmpd.conf
+3. Change below rows:
+	agentAddress  udp:161
+	rocommunity gtro x.x.x.x or public ip of whatsup (  )
+	rocommunity COMMUNITYSTRING IPOFMONITORINGSERVER
+	Example:
+	rocommunity gtro x.x.x.x
+	rocommunity gtro x.x.x.x
+	rocommunity gtro x.x.x.x
+4. Save configuration
+5. Restart snmp service: 
+sudo service snmpd restart
+
+***NOTE: in case of dpkg error code 1 
+
+sudo mv /var/lib/dpkg/info/install-info.postinst /var/lib/dpkg/info/install-info.postinst.bad
+*****************************************************************************
+How to remove public key from aws Ubuntu
+
+Login to the ubuntu using public key
+sudo passwd ubuntu
+Enter the passwords..
+Then go to: sudo vi /etc/ssh/sshd_config
+Find:
+PubkeyAuthentication Yes
+Change to: 
+PubkeyAuthentication no
+
+And
+PasswordAuthentication no
+
+Change to:
+PasswordAuthentication yes
+
+Save it and restart the service ssh service:
+sudo service sshd restart
+
+
+Test it before logout.
+****************************************************************************
+PHPMyAdmin:
+
+Restrict access to phpmyadmin , not allow publicly
+
+
+Login to vm
+sudo vi /etc/apache2/conf-enabled/phpmyadmin.conf
+
+
+Under <Directory /usr/share/phpmyadmin>
+
+
+Paste the below lines:
+#do not allow access from the outside world!
+Order Deny,Allow
+Deny from All
+Allow from x.x.x.x (IP)
+
+
+Restart apache:
+sudo /etc/init.d/apache2 restart
+**************************************************************************
+Upgrade linux ec2 instance to the latest available version
+
+sudo vi /etc/hostname
+Save and reboot
+sudo vi /etc/hosts
+
+
+sudo apt-get update
+
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys ADD-PUBLIC-KEY-OF-THE-SERVER
+sudo apt-get update
+sudo apt upgrade -y
+sudo do-release-upgrade
+sudo apt-get dist-upgrade
+sudo apt-get -f install
+sudo mv /var/lib/dpkg/info/install-info.postinst /var/lib/dpkg/info/install-info.postinst.bad
+sudo apt-get -f install
+lsb_release -a
+sudo apt autoremove
+sudo apt-get update
+sudo apt-get upgrade
+sudo apt-get update
+sudo apt-get dist-upgrade
+sudo reboot
+lsb_release -a
+UPGRADED TO 18.04 successfully
+
+sudo apt-get update
+sudo apt upgrade -y
+sudo apt autoremove
+sudo do-release-upgrade
+sudo apt-get dist-upgrade
+sudo apt autoremove
+sudo apt --fix-broken install
+sudo mv /var/lib/dpkg/info/install-info.postinst /var/lib/dpkg/info/install-info.postinst.bad
+sudo apt-get update
+sudo apt-get upgrade
+sudo mv /var/lib/dpkg/info/ /var/lib/dpkg/info_silent
+sudo mkdir /var/lib/dpkg/info
+sudo apt-get update
+sudo apt-get -f install
+sudo mv /var/lib/dpkg/info/* /var/lib/dpkg/info_silent/
+sudo rm -rf /var/lib/dpkg/info
+sudo mv /var/lib/dpkg/info_silent/ /var/lib/dpkg/info
+sudo apt-get update
+sudo apt-get upgrade
+sudo reboot
+sudo apt-get update
+sudo do-release-upgrade
+lsb_release -a
+
+UPGRADED TO 20.04 successfully
+
+
+
+
+lsb_release -a
+UNTIL LATEST LTS version
+
+
+
+
+For php and apache:
+sudo apt-get install php7.4
+sudo apt-get install php7.4-cli -y
+sudo apt autoremove
+sudo apt-get install php7.4-mysql -y
+sudo apt-get install php7.4-gd -y
+sudo apt-get install php7.4-curl -y
+sudo apt-get install php7.4-mbstring -y
+sudo apt-get install php7.4-xml -y 
+sudo apt-get install php7.4-zip -y
+sudo apt-get install php7.4-bcmath -y
+sudo apt-get install libapache2-mod-php7.4 -y
+sudo apt-get updatesu
+sudo a2enmod php7.4
+sudo a2dismod php7.2
+sudo service apache2 restart
+cd /var/www/core_api
+composer update
+cd /var/www/portal
+composer update
+cd /var/www/ib
+composer update
+sudo service apache2 restart
+
+lsb_release -a
+
+cd /var/www/bms/application/config/
+cd /etc/apache2/sites-available/
+Sudo vi 000-default.conf
+sudo service apache2 restart
+Sudo reboot
+sudo apt-get update 
+sudo apt autoremove
+****************************************************************************
+How to add  static dns on ubuntu aws
+
+Run the following steps to override the DNS server values:
+1.    Netplan typically stores configuration files in /etc/netplan directory. Create a file named /etc/netplan/99-custom-dns.yaml, and then populate it with the following lines. Be sure to replace the placeholder DNS server IP addresses with your preferred addresses:
+network:
+    version: 2
+    ethernets:
+        eth0:         
+            nameservers:
+                    addresses: [domaincontroller1, domaincontroller2]
+            dhcp4-overrides:
+                    use-dns: false
+
+From <https://aws.amazon.com/premiumsupport/knowledge-center/ec2-static-dns-ubuntu-debian/> ****************************************************************************
+Change hostname on ubuntu
+
+sudo hostnamectl set-hostname Websites-Pac-Fintec
+sudo reboot
+****************************************************************************
+Clear Cache of Linux Servers (Ubuntu)
+
+echo 3 | sudo tee /proc/sys/vm/drop_caches
+****************************************************************************
+Install PHP + CodeIgniter
+
+sudo apt-get update
+sudo apt-get upgrade
+sudo add-apt-repository ppa:ondrej/php
+sudo apt-get install -y php7.0
+sudo apt-get install apache2 -y
+sudo systemctl start apache2
+sudo systemctl enable apache2
+wget https://github.com/bcit-ci/CodeIgniter/archive/3.1.11.zip
+sudo apt install unzip
+unzip 3.1.11.zip
+sudo cp -r CodeIgniter-3.1.11 /var/www/html/codeigniter
+sudo chown -R www-data:www-data /var/www/html/codeigniter
+sudo chmod -R 777 /var/www/html/codeigniter/
+14 sudo vi /etc/apache2/sites-available/codeigniter.conf
+sudo a2ensite codeigniter
+systemctl restart apache2
+
+At Stage 14:
+Paste this piece of code in the codeigniter.conf
+Change the ServerAdmin - > yourdomain
+Change the ServerName   - > yourdomain
+
+
+<VirtualHost *:80>
+ ServerAdmin admin@yourdomain.com
+ DocumentRoot /var/www/html/codeigniter
+ ServerName yourdomain.com
+ <Directory /var/www/html/codeigniter/>
+Options +FollowSymLinks
+AllowOverride All
+Order allow,deny
+allow from all
+ </Directory>
+ ErrorLog /var/log/apache2/codeigniter-error_log
+ CustomLog /var/log/apache2/codeigniter-access_log common
+</VirtualHost>
+****************************************************************************
+Change DNS on Centos 
+
+sudo vi  /etc/sysconfig/network-scripts/ifcfg-eth0
+Change PEERDNS=YES to =NO
+Save it
+
+sudo vi /etc/resolv.conf
+
+
+The config should be identical:
+
+search gtgroup.local
+nameserver x.x.x.x (IP of domain server)
+nameserver x.x.x.x (IP of domain server2)
+
+The priority of the nameservers should be related to the Region of the server.
+****************************************************************************
+Cross Region replication S3
+aws s3 sync s3://xxxx-paris s3://xxxx-paris2 --source-region eu-west-1 --region me-south-1
+****************************************************************************
+Open crontab in vi editor:
+VISUAL=vi crontab -e
+****************************************************************************
+Clearlogs Script:
+
+#!/bin/sh
+#This script runs daily and zips the logs that are past 60 days
+cd /var/www/html/fxgt/logs
+for i in $(find . -name "*.php" -mtime +60); do filename=$(ls $i | xargs -n 1 basename); zip $filename.zip $filename;  rm -rf $filename; done
+cd
+****************************************************************************
+Install CodeDeploy Agent on Ubuntu 20.04
+sudo apt install ruby-full
+sudo apt install wget
+cd /home/ubuntu
+wget https://aws-codedeploy-ap-northeast-1.s3.ap-northeast-1.amazonaws.com/latest/install (template wget https://bucket-name.s3.region-identifier.amazonaws.com/latest/install)
+chmod +x ./install
+sudo ./install auto
+sudo service codedeploy-agent status
+****************************************************************************
+Docker Installation for Ubuntu:
+	- sudo apt-get update
+	- sudo apt-get install     ca-certificates     curl     gnupg     lsb-release
+	- curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+	- echo   "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu \
+  $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+    - sudo apt-get install docker-ce docker-ce-cli containerd.io
+    - sudo docker run hello-world
+    - sudo chmod 666 /var/run/docker.sock
+*****************************************************************************
+Install Apache2 on Ubuntu
+sudo apt-get update
+sudo apt-get install apache2
+*****************************************************************************
+How to check Transaction Logs on MySQL (Query):
+DBCC SQLPERF(logspace)
+*****************************************************************************
+Docker Commands:
+	Remove all running containers (no matter the status):
+		docker container prune --force
+
+	Delete all containers with specific Status:
+		docker volume rm $(docker volume ls -qf dangling=true)
+		docker rm $(docker ps -q -f 'status=created')
+			Then -> service docker restart
+
+	List all containers:
+		docker ps -a
+*****************************************************************************
+Make an Ubuntu Server accessible via password:
+sudo vi /etc/ssh/sshd_config
+sudo systemctl restart sshd
+*****************************************************************************
+Install AWS CLI with pip:
+sudo apt install python3 python3-pip build-essential python3-dev
+sudo apt update
+sudo apt upgrade
+sudo apt install python3-pip
+sudo apt install npm (I will working with NodeJS)
+pip3 install awscli --upgrade --user
+*****************************************************************************
+Set the correct path for the update of a website (Ubuntu):
+sudo git remote set-url origin https://<username>/token/repourl
+*****************************************************************************
+Install python 3.6 on Ubuntu 16.04
+sudo add-apt-repository ppa:deadsnakes/ppa
+sudo apt-get update
+sudo apt-get install python3.6
+*****************************************************************************
+Change the version of python3 on Ubuntu
+Example: You have 2 versions: 3.5 and 3.6
+You set them as alternatives so if you want to change you can:
+
+sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.5 1
+sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.6 2
+sudo update-alternatives --config python3
+*****************************************************************************
+Permission Denied Docker:
+sudo chmod 666 /var/run/docker.sock
+*****************************************************************************
+Remove PHP from an Ubuntu Server:
+sudo apt-get purge php7.*
+sudo apt-get autoclean
+sudo apt-get autoremove
+*****************************************************************************
+Install PHP on an Ubuntu Server:
+sudo add-apt-repository ppa:ondrej/php
+sudo apt-get update
+Example -> Version 7.0
+sudo apt-get install php7.0
+*****************************************************************************
+To switch that to the newer 7.1,7.2,7.3,7.4 version, first disable older PHP version:
+user@test:~# sudo a2dismod php7.0
+
+Then enable PHP 7.2:
+user@test:~# sudo a2enmod php7.2
+sudo service apache2 restart
+*****************************************************************************
+Change shells on a Linux User:
+to print all shells: echo /bin/shells
+to change: chsh ->sellect shell -> e.g. /bin/bash
+*****************************************************************************
+EC2 Ubuntu increase volume size:
+Firstly we will increase the size of the volume in the console.
+Once the modification is done we proceed with the below:
+Check the volume type by:
+df -hT
+lsblk
+blkid
+
+For Standard EBS Volumes:
+sudo growpart /dev/xvda 1
+sudo resize2fs /dev/xvda1
+
+For NVME EBS Volumes:
+sudo growpart /dev/nvme0n1 1
+sudo resize2fs /dev/nvme0n1p1
+*****************************************************************************
+MYSQL Amazon Linux -> Create new password for root
+
+1. Open and edit /etc/my.cnf or /etc/mysql/my.cnf, depending on your distribution.
+2. Add skip-grant-tables under [mysqld]
+3. Restart MySQL
+4. You should be able to log in to MySQL now using the below command mysql -u root -p
+5. Run mysql> flush privileges;
+6. Set new password by ALTER USER 'root'@'localhost' IDENTIFIED BY 'NewPassword';
+7. Go back to /etc/my.cnf and remove/comment skip-grant-tables
+8. Restart MySQL
+9. Now you will be able to login with the new password mysql -u root -p
+*****************************************************************************
+In order to create a NAT and access public Internet AWS:
+1. Create the NAT in a subnet that has access to the Internet (Internet Gateway)
+2. Assign to the NAT a public IP
+3. Create a route table that will send all public traffic 
+*****************************************************************************
+Create permanent actions for New Powershell session:
+	1. echo $profile to file the store location of the profile
+	2. vim the path (e.g cd 'C:\Users\andreas.t\OneDrive - 360 Degrees Markets Ltd\Desktop\K8s\Kubernetes')
+	3. add the commands you want to run once the powershell session is initiated
